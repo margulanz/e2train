@@ -147,7 +147,8 @@ def main():
         for iters in [el//2 for el in smb_iterations]:
             logging.info('training using SMB with {} number of iterations'.format(iters))
             args.iters = iters
-            smb_accuracies.append(run_training(args))
+            accuracy = run_training(args)
+            smd_accuracies.append(accuracy)
             logging.info('training using SMB with {} number of iterations finished with accuracy: {}'.format(iters,accuracy))
         args.SMD = True
         for iters in [el//2 for el in smd_iterations]:
